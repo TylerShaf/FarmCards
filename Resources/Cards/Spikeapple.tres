@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b0xdrred36w4l"]
+
+[ext_resource type="Script" path="res://Resources/Cards/spikeapple.gd" id="1_8knwo"]
+
+[resource]
+script = ExtResource("1_8knwo")
+name = "Spikeapple"
+value = 3
+water_need = 2
+fert_need = 0

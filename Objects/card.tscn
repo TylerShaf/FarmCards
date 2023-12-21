@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://cco8iuufaoxxu"]
+
+[ext_resource type="Script" path="res://Objects/card.gd" id="1_4efsi"]
+[ext_resource type="StyleBox" uid="uid://b0o3q2wgawiq6" path="res://Styles/card.tres" id="2_h6hbt"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4efsi")
+
+[node name="CardBackground" type="Panel" parent="."]
+custom_minimum_size = Vector2(175, 245)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 175.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_h6hbt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardBackground/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardBackground/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="WaterRequirement" type="Label" parent="CardBackground/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FertRequirement" type="Label" parent="CardBackground/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="CardBackground/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="ColorRect" parent="CardBackground/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CardBackground/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Value" type="Label" parent="CardBackground/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="ColorRect" parent="CardBackground/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[node name="Marker2D" type="Marker2D" parent="CardBackground"]
+position = Vector2(90, 125)
