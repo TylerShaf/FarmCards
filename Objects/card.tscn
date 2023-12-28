@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cco8iuufaoxxu"]
+[gd_scene load_steps=4 format=3 uid="uid://cco8iuufaoxxu"]
 
 [ext_resource type="Script" path="res://Objects/card.gd" id="1_4efsi"]
 [ext_resource type="StyleBox" uid="uid://b0o3q2wgawiq6" path="res://Styles/card.tres" id="2_h6hbt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vmre"]
+size = Vector2(175, 245)
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -12,6 +15,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_4efsi")
 
 [node name="CardBackground" type="Panel" parent="."]
@@ -24,6 +28,7 @@ offset_right = 175.0
 offset_bottom = 245.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = ExtResource("2_h6hbt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardBackground"]
@@ -71,6 +76,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 color = Color(0.741176, 0.741176, 0.741176, 1)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CardBackground/VBoxContainer"]
@@ -90,7 +96,25 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 color = Color(0.741176, 0.741176, 0.741176, 1)
 
 [node name="Marker2D" type="Marker2D" parent="CardBackground"]
 position = Vector2(90, 125)
+
+[node name="CardHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardHitbox"]
+position = Vector2(87.5, 122.5)
+shape = SubResource("RectangleShape2D_5vmre")
+
+[node name="HoverShader" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 280.0
+color = Color(0, 0, 0, 0.227451)
+
+[connection signal="input_event" from="CardHitbox" to="." method="_on_card_hitbox_input_event"]
+[connection signal="mouse_entered" from="CardHitbox" to="." method="_on_card_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="CardHitbox" to="." method="_on_card_hitbox_mouse_exited"]
