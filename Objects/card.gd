@@ -1,3 +1,4 @@
+class_name Card
 extends Control
 
 @export var card_stats:Resource
@@ -11,7 +12,7 @@ const card_height = int(3.5 * 80)
 @onready var fert_box = $CardBackground/VBoxContainer/HBoxContainer/VBoxContainer/FertRequirement
 @onready var value_box = $CardBackground/VBoxContainer/HBoxContainer2/Value
 @onready var hover_shader = $HoverShader
-var selected_test = false
+var click_offset = Vector2(card_width/2, card_height/2)
 
 signal card_selected
 signal card_hovered
@@ -25,23 +26,21 @@ func _ready():
 	fert_box.text = str(card_stats.fert_need)
 	value_box.text = str(card_stats.value)
 
-# FOR TESTING ONLY
-# Movement will be handled by Board
-func _process(delta):
-	if selected_test:
-		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
+func _get_drag_data(at_position):
+	#click_offset = at_position
+	set_drag_preview(make_drag_preview(at_position))
+	return self
 
-func _on_card_hitbox_input_event(viewportNode, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("left_click"):
-		selected_test = true
-		#print('clicked')
-		emit_signal("card_selected", self)
+func make_drag_preview(at_position: Vector2) -> Control:
+	var t := TextureRect.new()
+	var ct = CanvasTexture.new()
+	t.texture = ct
+	t.modulate.a = .5
+	t.custom_minimum_size = Vector2(card_width, card_height)
 
-func _on_card_hitbox_mouse_entered():
-	#print('hovered')
-	hover_shader.visible = true
-	emit_signal("card_hovered")
+	t.position = Vector2(-click_offset)
 
+	var c := Control.new()
+	c.add_child(t)
 
-func _on_card_hitbox_mouse_exited():
-	hover_shader.visible = false
+	return c
