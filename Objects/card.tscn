@@ -69,9 +69,14 @@ text = "name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel3" type="ColorRect" parent="CardBackground/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBackground/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Panel3" type="ColorRect" parent="CardBackground/VBoxContainer/MarginContainer"]
+layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 color = Color(0.741176, 0.741176, 0.741176, 1)
@@ -89,7 +94,16 @@ text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel4" type="ColorRect" parent="CardBackground/VBoxContainer/HBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="CardBackground/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel4" type="ColorRect" parent="CardBackground/VBoxContainer/HBoxContainer2/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

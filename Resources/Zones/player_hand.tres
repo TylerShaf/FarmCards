@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ZoneDeck" load_steps=2 format=3 uid="uid://dftnutnfl8p2j"]
+
+[ext_resource type="Script" path="res://Player/zone_card_deck.gd" id="1_8sct2"]
+
+[resource]
+script = ExtResource("1_8sct2")
+deck = []

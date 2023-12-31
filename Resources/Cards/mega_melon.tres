@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardStatBlock" load_steps=2 format=3 uid="uid://x65fwlty3xoo"]
+
+[ext_resource type="Script" path="res://card_stat_block.gd" id="1_x8j78"]
+
+[resource]
+script = ExtResource("1_x8j78")
+name = "Mega Melon"
+value = 6
+water_need = 3
+fert_need = 2

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b0xdrred36w4l"]
+[gd_resource type="Resource" script_class="CardStatBlock" load_steps=2 format=3 uid="uid://b0xdrred36w4l"]
 
-[ext_resource type="Script" path="res://Resources/Cards/spikeapple.gd" id="1_8knwo"]
+[ext_resource type="Script" path="res://card_stat_block.gd" id="1_xw4vj"]
 
 [resource]
-script = ExtResource("1_8knwo")
+script = ExtResource("1_xw4vj")
 name = "Spikeapple"
 value = 3
 water_need = 2

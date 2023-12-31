@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardStatBlock" load_steps=2 format=3 uid="uid://bw4h42gmryi1g"]
+
+[ext_resource type="Script" path="res://card_stat_block.gd" id="1_v0nf4"]
+
+[resource]
+script = ExtResource("1_v0nf4")
+name = "Curly Carrots"
+value = 4
+water_need = 2
+fert_need = 1
